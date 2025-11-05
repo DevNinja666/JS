@@ -1,0 +1,28 @@
+//1
+
+let gb = prompt("Введите объем флешки в ГБ:");
+let mb = gb * 1024;                 
+let count = Math.floor(mb / 820);   
+
+alert("Поместится файлов: " + count);
+
+
+
+//2
+
+let num = prompt("Введите  число:");
+num = Number(num);
+let a = Math.floor(num / 100);       
+let b = Math.floor((num / 10) % 10); 
+let c = num % 10;                
+let reversed = c * 100 + b * 10 + a;
+alert("Число наоборот: " + reversed);
+
+
+//3
+
+let n = prompt("Введите число:");
+n = Number(n);
+
+let result = (n % 2 === 0) ? "Четное" : "Нечетное";
+alert(result);
