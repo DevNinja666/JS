@@ -1,0 +1,65 @@
+//1
+
+let positive = 0;
+let negative = 0;
+let zeros = 0;
+let even = 0;
+let odd = 0;
+
+for (let i = 0; i < 10; i++) {
+    let num = Number(prompt("Введите число #" + (i + 1)));
+    if (num > 0) positive++;
+    else if (num < 0) negative++;
+    else zeros++;
+
+    // четные / нечетные
+    if (num % 2 === 0) even++;
+    else odd++;
+}
+
+alert(
+    "Положительных: " + positive + "\n" +
+    "Отрицательных: " + negative + "\n" +
+    "Нулей: " + zeros + "\n" +
+    "Четных: " + even + "\n" +
+    "Нечетных: " + odd
+);
+
+
+
+
+//2
+
+let again = true;
+
+while (again) {
+    let a = Number(prompt("Введите первое число:"));
+    let b = Number(prompt("Введите второе число:"));
+    let sign = prompt("Введите математический знак (+, -, *, /):");
+
+    let result;
+
+    switch (sign) {
+        case "+":
+            result = a + b;
+            break;
+        case "-":
+            result = a - b;
+            break;
+        case "*":
+            result = a * b;
+            break;
+        case "/":
+            result = b !== 0 ? a / b : "Делить на 0 нельзя!";
+            break;
+        default:
+            result = "Неизвестная операция";
+    }
+
+    alert("Результат: " + result);
+
+    let answer = prompt("Сделать еще один пример? (да/нет)");
+    if (answer.toLowerCase() !== "да") {
+        again = false;
+    }
+}
