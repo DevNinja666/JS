@@ -1,0 +1,122 @@
+function swapCharacters(str) {
+    let result = "";
+
+    for (let i = 0; i < str.length; i++) {
+        let ch = str[i];
+
+        if (ch >= "0" && ch <= "9") {
+            result += "_";
+        } else if (ch == ch.toUpperCase()) {
+            result += ch.toLowerCase();
+        } else {
+            result += ch.toUpperCase();
+        }
+    }
+
+    console.log(result);
+}
+
+swapCharacters("Abc123XyZ"); // aBC___xYz
+
+
+
+
+///////////
+function toCamelCase(str) {
+    let result = "";
+    let makeUpper = false;
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == "-") {
+            makeUpper = true; 
+        } else {
+            if (makeUpper) {
+                result += str[i].toUpperCase();
+                makeUpper = false;
+            } else {
+                result += str[i];
+            }
+        }
+    }
+
+    console.log(result);
+}
+
+toCamelCase("font-size");
+toCamelCase("background-color");
+
+
+///////
+
+function makeAbbreviation(str) {
+    let result = "";
+    let words = str.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > 0) {
+            result += words[i][0].toUpperCase();
+        }
+    }
+
+    console.log(result);
+}
+
+makeAbbreviation("cascading style sheets"); // CSS
+
+//////
+function parseURL(url) {
+    let protocol = "";
+    let domain = "";
+    let path = "";
+
+    let parts = url.split("://");
+    protocol = parts[0];
+
+    let domainAndPath = parts[1].split("/");
+    domain = domainAndPath[0];
+
+    path = "/";
+    for (let i = 1; i < domainAndPath.length; i++) {
+        path += domainAndPath[i];
+        if (i < domainAndPath.length - 1) {
+            path += "/";
+        }
+    }
+
+    console.log("протокол:", protocol);
+    console.log("домен:", domain);
+    console.log("путь:", path);
+}
+
+parseURL("https://itstep.org/ua/about");
+
+
+////////
+function print(template, a1, a2, a3, a4) {
+    let result = "";
+
+    for (let i = 0; i < template.length; i++) {
+        if (template[i] == "%" && !isNaN(template[i+1])) {
+            let number = Number(template[i+1]);
+
+            if (number == 1) result += a1;
+            if (number == 2) result += a2;
+            if (number == 3) result += a3;
+            if (number == 4) result += a4;
+
+            i++;
+        } else {
+            result += template[i];
+        }
+    }
+
+    console.log(result);
+}
+
+print("Today is %1 %2.%3.%4", "Monday", 10, 8, 2020);
+// Today is Monday 10.8.2020
+
+
+
+
+
