@@ -1,0 +1,13 @@
+function printStyledText(styles, text) {
+    let styleString = "";
+
+    for (let i = 0; i < styles.length; i++) {
+        for (let key in styles[i]) {
+            styleString += key + ":" + styles[i][key] + "; ";
+        }
+    }
+
+    console.log("<p style='" + styleString + "'>" + text + "</p>");
+}
+
+printStyledText([{ color: "pink" }], "Hello world");
