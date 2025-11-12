@@ -1,0 +1,44 @@
+//html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Task 1 — Hover кнопка</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Task 1 — Hover кнопка</h2>
+<button id="btn1">Наведи на меня</button>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+//css
+#btn1 {
+  background-color: lightblue;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#btn1.hovered {
+  background-color: orange;
+}
+
+
+//js
+const btn = document.getElementById('btn1');
+
+btn.addEventListener('mouseenter', () => {
+  btn.classList.add('hovered');
+});
+
+btn.addEventListener('mouseleave', () => {
+  btn.classList.remove('hovered');
+});
