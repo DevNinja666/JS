@@ -1,0 +1,75 @@
+//html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Task 4 — Контекстное меню</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Task 4</h2>
+
+<div id="menuArea">Кликни правой кнопкой мыши здесь</div>
+
+<ul id="customMenu">
+  <li onclick="alert('Пункт 1')">Пункт 1</li>
+  <li onclick="alert('Пункт 2')">Пункт 2</li>
+  <li onclick="alert('Пункт 3')">Пункт 3</li>
+</ul>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+//css
+
+
+#menuArea {
+  width: 300px;
+  height: 150px;
+  border: 1px solid #000;
+  margin-top: 20px;
+  padding: 10px;
+  cursor: context-menu;
+}
+
+#customMenu {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  background: #ddd;
+  border: 1px solid #000;
+  width: 150px;
+  z-index: 1000;
+}
+
+#customMenu li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#customMenu li:hover {
+  background-color: #aaa;
+}
+
+//js
+
+const area = document.getElementById('menuArea');
+const menu = document.getElementById('customMenu');
+
+
+area.addEventListener('contextmenu', (e) => {
+  e.preventDefault(); 
+  menu.style.display = 'block';
+  menu.style.left = e.pageX + 'px';
+  menu.style.top = e.pageY + 'px';
+});
+
+document.addEventListener('click', () => {
+  menu.style.display = 'none';
+});
