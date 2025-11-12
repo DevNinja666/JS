@@ -1,0 +1,61 @@
+//html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Task 3 — Tooltip для ссылки</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Task 3 </h2>
+
+<a href="https://example.com" id="myLink">Перейтит</a>
+<div id="tooltip" class="tooltip"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+//css
+
+a {
+  text-decoration: none;
+  color: blue;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  display: none;
+  pointer-events: none; 
+}
+
+
+//js
+
+
+const link = document.getElementById('myLink');
+const tooltip = document.getElementById('tooltip');
+
+link.addEventListener('mouseenter', (e) => {
+  tooltip.innerText = link.href;      
+  tooltip.style.display = 'block';
+  tooltip.style.left = e.pageX + 10 + 'px';
+  tooltip.style.top = e.pageY + 10 + 'px';
+});
+
+link.addEventListener('mousemove', (e) => {
+  tooltip.style.left = e.pageX + 10 + 'px';
+  tooltip.style.top = e.pageY + 10 + 'px';
+});
+
+link.addEventListener('mouseleave', () => {
+  tooltip.style.display = 'none';
+});
