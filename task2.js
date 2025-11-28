@@ -27,7 +27,7 @@ class HtmlObject {
     getHtml(indent = 0) {
         const space = " ".repeat(indent);
 
-        // Сбор атрибутов
+        
         let attrs = "";
         this.attributes.forEach(a => {
             attrs += ` ${a.name}="${a.value}"`;
